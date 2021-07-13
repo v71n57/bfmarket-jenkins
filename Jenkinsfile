@@ -1,19 +1,14 @@
 #!/usr/bin/env groovy
 
 node('master') {
- stage('Checkout') {
-    // Clean workspace and checkout shared library repository on the jenkins master
-    cleanWs()
-    checkout scm
-  }
+
 ///var/lib/jenkins/workspace/SeedJob
     stage('Say') {
     echo 'Hello'
-//    sh ('pwd')
   }
 
       stage('copy1') {
-    sh('cp README.md /var/lib/jenkins')
+    sh('cp README.md /tmp')
   }
 
       stage('copy2') {
@@ -25,21 +20,6 @@ node('master') {
 
     // run configuration from config file
  //   load('resources/config/groovy/triggerConfigurationAsCodePlugin.groovy')
-
-    // set public key for bootstrapping user
-//    load('resources/config/groovy/userPublicKeys.groovy')
-
-    // set the timezone
-//    load('resources/config/groovy/timezone.groovy')
-//  }
-
-//  stage('Deploy Agent Networks') {
-//    ansiColor('xterm') {
-//      sh('ln -sfn /var/jenkins_home/agent-bootstrapping-terraform-config/aws-agent-network.backend.config resources/terraform/aws/agent-network/')
-//      sh('ln -sfn /var/jenkins_home/agent-bootstrapping-terraform-config/aws-agent-network.tfvars resources/terraform/aws/agent-network/terraform.tfvars')
-//      sh('cd resources/terraform/ && make deploy-agent-network')
-//    }
-//  }
 
 //  stage('Job Seeding') {
 //    jobDsl(targets: 'resources/jobDSL/*.groovy', sandbox: false)
