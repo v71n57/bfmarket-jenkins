@@ -1,15 +1,15 @@
 #!/usr/bin/env groovy
 
 node('master') {
- // stage('Checkout') {
+ stage('Checkout') {
     // Clean workspace and checkout shared library repository on the jenkins master
-//    cleanWs()
-//    checkout scm
-//  }
+    cleanWs()
+    checkout scm
+  }
 ///var/lib/jenkins/workspace/SeedJob
     stage('Say') {
     echo 'Hello'
-    sh ('pwd')
+//    sh ('pwd')
   }
 
       stage('copy1') {
