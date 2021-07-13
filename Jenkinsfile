@@ -6,11 +6,19 @@ node('master') {
 //    cleanWs()
 //    checkout scm
 //  }
-
-    stage('Conf') {
-    echo 'hello'
+///var/lib/jenkins/workspace/SeedJob
+    stage('Say') {
+    echo 'Hello'
+    sh ('pwd')
   }
 
+      stage('copy1') {
+    sh('cp README.md /var/lib/jenkins')
+  }
+
+      stage('copy2') {
+    sh('cp /var/lib/jenkins/workspace/SeedJob/README.md /var/lib/jenkins')
+  }
 //  stage('Configuration') {
     // set config file in master
 //    sh('cp /var/jenkins_home/workspace/Admin/Configure/resources/config/configuration-as-code-plugin/jenkins.yaml /var/jenkins_home/jenkins.yaml')
