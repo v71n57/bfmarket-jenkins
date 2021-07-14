@@ -14,6 +14,10 @@ stage('Say') {
     sh '/run/current-system/sw/bin/id'
   }  
 
+  stage('copy') {
+    sh 'cp /var/lib/jenkins/workspace/SeedJob/README.md /var/lib/jenkins'
+  }   
+
 //    sh 'cp /var/lib/jenkins/workspace/SeedJob/README.md /var/lib/jenkins'
 //  stage('Configuration') {
 //    sh('cp /var/jenkins_home/workspace/Admin/Configure/resources/config/configuration-as-code-plugin/jenkins.yaml /var/jenkins_home/jenkins.yaml')
