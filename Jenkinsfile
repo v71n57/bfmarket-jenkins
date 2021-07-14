@@ -2,6 +2,12 @@
 
 node('master') {
 
+stage('Checkout') {
+  // Clean workspace and checkout shared library repository on the jenkins master
+  // cleanWs()
+    checkout scm
+  }
+
 stage('Say') {
     echo 'Hello'
   }
