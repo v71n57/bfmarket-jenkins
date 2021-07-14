@@ -1,0 +1,5 @@
+---
+jenkins:
+  systemMessage: "Powered automagically by Groovy and Configuration-as-Code Plugin\n\n"
+  numExecutors: 5
+
