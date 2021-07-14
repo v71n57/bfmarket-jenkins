@@ -12,6 +12,7 @@ stage('Say') {
 
  stage('userid') {
     sh '/run/current-system/sw/bin/id'
+    sh 'pwd'
   }  
 
   stage('copy') {
