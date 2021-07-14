@@ -10,9 +10,11 @@ pipelineJob('BF_Market_App') {
           remote { url(repo) }
           branch('main')
           scriptPath('Jenkinsfile')
-          //extensions { }  // required as otherwise it may try to tag the repo, which you may not want
         }
       }
     }
+  }
+    configure {
+     it / definition / lightweight(true)
   }
 }
