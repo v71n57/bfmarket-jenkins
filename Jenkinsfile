@@ -6,7 +6,8 @@ stage('Checkout') {
 
 stage('Say') {
     echo 'Hello'
-    echo "WORKSPACE ${env.WORKSPACE}"
+    echo "env.PATH=${env.PATH}"
+    echo "WORKSPACE=${env.WORKSPACE}"
   }
 
 stage('Faile') {
