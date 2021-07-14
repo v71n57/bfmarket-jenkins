@@ -10,10 +10,15 @@ stage('Checkout') {
 
 stage('Say') {
     echo 'Hello'
+    echo "WORKSPACE ${env.WORKSPACE}"
   }
 
+stage('Faile') {
+    sh 'make2'
+  }  
+
 stage('copy1') {
-    sh "cp /var/lib/jenkins/workspace/SeedJob/README.md /var/lib/jenkins"
+    sh 'cp /var/lib/jenkins/workspace/SeedJob/README.md /var/lib/jenkins'
   }
 
 stage('copy2') {
