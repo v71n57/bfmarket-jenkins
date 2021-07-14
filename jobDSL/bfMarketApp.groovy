@@ -1,4 +1,4 @@
-pipelineJob('DSL_Pipeline') {
+pipelineJob('BF_Market_App') {
   def repo = 'https://github.com/v71n57/bf-market-app'
 
   description("Pipeline for $repo")
