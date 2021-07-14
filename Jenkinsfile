@@ -13,7 +13,7 @@ stage('Say') {
   }
 
 stage('copy1') {
-    sh('cp /var/lib/jenkins/workspace/SeedJob/README.md /var/lib/jenkins')
+    sh "cp /var/lib/jenkins/workspace/SeedJob/README.md /var/lib/jenkins"
   }
 
 stage('copy2') {
