@@ -10,9 +10,9 @@ stage('Say') {
     echo "WORKSPACE=${env.WORKSPACE}"
   }
 
-// stage('Faile') {
-//    sh '/run/current-system/sw/bin/id'
-//  }  
+ stage('userid') {
+    sh '/run/current-system/sw/bin/id'
+  }  
 
 //    sh 'cp /var/lib/jenkins/workspace/SeedJob/README.md /var/lib/jenkins'
 //  stage('Configuration') {
