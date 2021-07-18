@@ -1,5 +1,5 @@
-pipelineJob('BF_Market_App') {
-  def repo = 'https://github.com/v71n57/bf-market-app'
+pipelineJob('bf-market-app') {
+  def repo = 'https://github.com/v71n57/bf-market-app.git'
 
   description("Pipeline for $repo")
 
@@ -12,9 +12,7 @@ pipelineJob('BF_Market_App') {
           scriptPath('Jenkinsfile')
         }
       }
+      lightweight()
     }
-  }
-    configure {
-     it / definition / lightweight(true)
   }
 }
