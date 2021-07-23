@@ -1,8 +1,6 @@
 pipelineJob('bf-market-app') {
   def repo = 'https://github.com/v71n57/bf-market-app.git'
-
   description("Pipeline for $repo")
-
   definition {
     cpsScm {
       scm {
