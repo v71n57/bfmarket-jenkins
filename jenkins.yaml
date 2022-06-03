@@ -2,7 +2,7 @@
 jenkins:
   systemMessage: "Powered automagically by Groovy and Configuration-as-Code Plugin\n\n"
   numExecutors: 3
-  scmCheckoutRetryCount: 2
+  scmCheckoutRetryCount: 5
   mode: NORMAL
 
   # authorizationStrategy:
