@@ -9,7 +9,6 @@ jenkins:
   #   loggedInUsersCanDoAnything:
   #     allowAnonymousRead: false
 
-
 unclassified:
   globalLibraries:
     libraries:
@@ -20,4 +19,3 @@ unclassified:
             scm:
               git:
                 remote: "https://github.com/v71n57/bfmarket-jenkins.git"
-
