@@ -14,6 +14,7 @@ unclassified:
   globalLibraries:
     libraries:
       - name: "bfmarket-lib"
+        defaultVersion: "main"
         retriever:
           modernSCM:
             scm:
