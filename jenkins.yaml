@@ -1,5 +1,22 @@
 ---
 jenkins:
   systemMessage: "Powered automagically by Groovy and Configuration-as-Code Plugin\n\n"
-  numExecutors: 5
+  numExecutors: 3
+  scmCheckoutRetryCount: 2
+  mode: NORMAL
+
+  # authorizationStrategy:
+  #   loggedInUsersCanDoAnything:
+  #     allowAnonymousRead: false
+
+
+unclassified:
+  globalLibraries:
+    libraries:
+      - name: "bfmarket-lib"
+        retriever:
+          modernSCM:
+            scm:
+              git:
+                remote: "https://github.com/v71n57/bfmarket-jenkins.git"
 
