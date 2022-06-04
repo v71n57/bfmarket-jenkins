@@ -29,7 +29,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
       WERF_ENABLE_PROCESS_EXTERMINATOR=1
       WERF_LOG_TERMINAL_WIDTH=95
       PATH="$PATH:$HOME/bin"
-      WERF_KUBECONFIG="$HOME/.kube/config"
+      WERF_KUBECONFIG="$HOME/kubeconfig"
       WERF_SECRET_KEY = credentials("${werf_secret_key}")
     }
     triggers {
@@ -67,7 +67,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
           }
         environment {
           // название окружения, куда осуществляется деплой (важно для шаблонизации Helm-чарта)
-          WERF_ENV="production"
+          // WERF_ENV="production"
         }
         steps {
           runWerf("${dockerCreds}", "converge --repo ${imagesRepo}/${PROJ_NAME}")
