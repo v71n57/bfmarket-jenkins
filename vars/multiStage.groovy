@@ -54,7 +54,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
           sh "pwd"
           script {
             // запуск нашего метода из runWerf.groovy
-            runWerf("${dockerCreds}","build --repo ${imagesRepo}")
+            runWerf("${dockerCreds}","build --repo ${imagesRepo}/${PROJ_NAME}")
           }
         }
       }
@@ -69,7 +69,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
           WERF_ENV="production"
         }
         steps {
-          runWerf("${dockerCreds}","converge --repo ${imagesRepo}")
+          runWerf("${dockerCreds}","converge --repo ${imagesRepo}/${PROJ_NAME}")
         }
       }
       stage('Cleanup werf Images') {
@@ -82,7 +82,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
         }
         steps {
           sh "echo 'Cleaning up werf images'"
-          runWerf("${dockerCreds}","cleanup --repo ${imagesRepo}")
+          runWerf("${dockerCreds}","cleanup --repo ${imagesRepo}/${PROJ_NAME}")
         }
       }
     }
