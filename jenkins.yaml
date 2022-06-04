@@ -19,3 +19,19 @@ unclassified:
             scm:
               git:
                 remote: "https://github.com/v71n57/bfmarket-jenkins.git"
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: "docker-credentials-default"
+              username: "werf"
+              password: "werf"
+              description: "docker-credentials-default"
+          - string:
+              scope: GLOBAL
+              id: "werf-secret-key-default"
+              secret: "werf-secret-key-default"
+              description: "werf-secret-key-default"
