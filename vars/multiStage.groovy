@@ -38,6 +38,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
     stages {
       stage('Checkout') {
         steps {
+          sh "id"
           checkout scm // получаем код из репозитория
         }
       }
