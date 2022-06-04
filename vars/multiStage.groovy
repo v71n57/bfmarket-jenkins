@@ -14,7 +14,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
     return
   }
   pipeline {
-    agent { label 'werf' }
+    agent { label 'master' }
     options { disableConcurrentBuilds() } // запрещаем параллельную сборку для пайплайна
     environment { // переменные для работы werf
       WERF_IMAGES_REPO="${imagesRepo}"
