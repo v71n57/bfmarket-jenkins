@@ -18,7 +18,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
     options { disableConcurrentBuilds() } // запрещаем параллельную сборку для пайплайна
     environment { // переменные для работы werf
       WERF_IMAGES_REPO="${imagesRepo}"
-             WERF_STAGES_STORAGE=":local"
+      WERF_STAGES_STORAGE=":local"
       WERF_TAG_BY_STAGES_SIGNATURE=true
       WERF_ADD_ANNOTATION_PROJECT_GIT="project.werf.io/git=${GIT_URL}"
       WERF_ADD_ANNOTATION_CI_COMMIT="ci.werf.io/commit=${GIT_COMMIT}"
@@ -78,7 +78,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
         }
         steps {
           sh "echo 'Cleaning up werf images'"
-            runWerf("${dockerCreds}","cleanup --stages-storage :local --images-repo ${imagesRepo}")
+          runWerf("${dockerCreds}","cleanup --stages-storage :local --images-repo ${imagesRepo}")
         }
       }
     }
