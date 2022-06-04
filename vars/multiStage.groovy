@@ -9,10 +9,12 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
   def PROJ_NAME = "${env.JOB_NAME}".split('/').first()
   // имя registry в docker hub или адрес до кастомного registry
   def imagesRepo = parameters.imagesRepo != null ? parameters.imagesRepo : "registry.example.com:5000"
+
   if( namespace == null ) { // единственный обязательный аргумент и проверка на его наличие
     currentBuild.result = 'FAILED'
     return
   }
+
   pipeline {
     agent { label 'master' }
     options { disableConcurrentBuilds() } // запрещаем параллельную сборку для пайплайна
@@ -28,7 +30,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
       WERF_LOG_TERMINAL_WIDTH=95
       PATH="$PATH:$HOME/bin"
       WERF_KUBECONFIG="$HOME/.kube/config"
-      //WERF_SECRET_KEY = credentials("${werf_secret_key}")
+      WERF_SECRET_KEY = credentials("${werf_secret_key}")
     }
     triggers {
       // Execute weekdays every four hours starting at minute 0
