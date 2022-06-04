@@ -28,7 +28,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
       WERF_LOG_TERMINAL_WIDTH=95
       PATH="$PATH:$HOME/bin"
       WERF_KUBECONFIG="$HOME/.kube/config"
-      #WERF_SECRET_KEY = credentials("${werf_secret_key}")
+      //WERF_SECRET_KEY = credentials("${werf_secret_key}")
     }
     triggers {
       // Execute weekdays every four hours starting at minute 0
