@@ -7,6 +7,7 @@ def call(String dockerCreds, String werfargs){
     sh '''#!/bin/bash -el
           set -o pipefail
           type trdl && source "$(trdl use werf 1.2 stable)"
+          pwd
           werf version
           werf ${werfargs}'''.trim()
     }
