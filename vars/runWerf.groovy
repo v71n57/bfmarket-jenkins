@@ -10,7 +10,7 @@ def call(String dockerCreds, String werfargs){
           pwd
           id
           werf version
-          echo ${werfargs}
+          echo 11111 ${werfargs}
           werf ${werfargs}'''.trim()
     }
 }
