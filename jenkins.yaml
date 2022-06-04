@@ -5,10 +5,6 @@ jenkins:
   scmCheckoutRetryCount: 5
   mode: NORMAL
 
-  # authorizationStrategy:
-  #   loggedInUsersCanDoAnything:
-  #     allowAnonymousRead: false
-
 unclassified:
   globalLibraries:
     libraries:
