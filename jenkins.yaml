@@ -1,6 +1,6 @@
 ---
 jenkins:
-  systemMessage: "Powered automagically by Groovy and Configuration-as-Code Plugin\n\n"
+  systemMessage: "Powered automagically by Groovy and Configuration-as-Code Plugin\n\nLogin, password admin:admin"
   numExecutors: 3
   scmCheckoutRetryCount: 5
   mode: NORMAL
