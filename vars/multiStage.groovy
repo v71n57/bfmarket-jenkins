@@ -8,7 +8,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
   // получаем имя проекта из имени multibranch pipeline
   def PROJ_NAME = "${env.JOB_NAME}".split('/').first()
   // имя registry в docker hub или адрес до кастомного registry
-  def imagesRepo = parameters.imagesRepo != null ? parameters.imagesRepo : "myrepo"
+  def imagesRepo = parameters.imagesRepo != null ? parameters.imagesRepo : "registry.example.com:5000"
   if( namespace == null ) { // единственный обязательный аргумент и проверка на его наличие
     currentBuild.result = 'FAILED'
     return
