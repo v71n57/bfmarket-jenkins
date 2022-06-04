@@ -40,7 +40,6 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
     stages {
       stage('Checkout') {
         steps {
-          sh "id"
           checkout scm // получаем код из репозитория
         }
       }
@@ -51,10 +50,8 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
             not { triggeredBy 'TimerTrigger' } // чтобы stage не запускался по крону
         }
         steps {
-          sh "pwd"
           script {
             // запуск нашего метода из runWerf.groovy
-            //${PROJ_NAME}
             runWerf("${dockerCreds}", "build --repo ${imagesRepo}/${PROJ_NAME}")
           }
         }
