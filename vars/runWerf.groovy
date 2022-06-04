@@ -6,7 +6,7 @@ def call(String dockerCreds, String werfargs){
   docker.withRegistry("https://registry.example.com:5000", "${dockerCreds}") {
     sh """#!/bin/bash -el
           set -o pipefail
-          type trdl && source <(trdl use werf 1.2 stable)
+          type trdl && source <(trdl use werf 1.2 stable --as-file)
           werf version
           werf ${werfargs}""".trim()
     }
