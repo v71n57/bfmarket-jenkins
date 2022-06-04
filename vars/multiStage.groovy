@@ -51,6 +51,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
             not { triggeredBy 'TimerTrigger' } // чтобы stage не запускался по крону
         }
         steps {
+          sh "pwd"
           script {
             // запуск нашего метода из runWerf.groovy
             runWerf("${dockerCreds}","build --repo ${imagesRepo}")
