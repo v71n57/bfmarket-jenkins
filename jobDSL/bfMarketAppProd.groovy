@@ -1,4 +1,5 @@
 def repo = 'https://github.com/v71n57/bfmarket-app.git'
+def branchName = 'main'
 pipelineJob('bfmarket-app-prod') {
   description("Pipeline for $repo")
   definition {
@@ -6,7 +7,7 @@ pipelineJob('bfmarket-app-prod') {
       scm {
         git {
           remote { url(repo) }
-          branch('main')
+          branch(branchName)
           scriptPath('Jenkinsfile')
         }
       }
