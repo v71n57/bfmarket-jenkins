@@ -62,10 +62,11 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
         when {
             not { triggeredBy 'TimerTrigger' }
           }
-          
+
         environment {
           // название окружения, куда осуществляется деплой (важно для шаблонизации Helm-чарта)
-          WERF_ENV="production"
+          //WERF_ENV="production"
+          WERF_ENV="${namespace}"
         }
         steps {
           runWerf("${dockerCreds}", "converge --repo ${imagesRepo}/${PROJ_NAME}")
