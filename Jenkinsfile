@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-import jenkins.model.Jenkins
+// import jenkins.model.Jenkins
 
   pipeline {
     agent { label 'master' }
