@@ -1,21 +1,34 @@
 #!/usr/bin/env groovy
 import jenkins.model.Jenkins
 
-node('master') {
+  pipeline {
+    agent { label 'master' }
+    options { disableConcurrentBuilds() } // запрещаем параллельную сборку для пайплайна
+    stages {
+      stage('Checkout') {
+        steps {
+          checkout scm // получаем код из репозитория
+        }
+      }
 
-stage('Checkout') {
-    checkout scm
-  }
+      stage('Configuration') {
+        steps {
+          sh "echo 'Configuration'"
+          sh('cp jenkins.yaml /var/lib/jenkins/jenkins.yaml')
+          sh ('sudo cp /etc/kubernetes/admin.conf /var/lib/jenkins/kubeconfig')
+          sh ('sudo chown jenkins:jenkins /var/lib/jenkins/kubeconfig')
+          script {
+            def jcacPlugin = Jenkins.instance.getExtensionList(io.jenkins.plugins.casc.ConfigurationAsCode.class).first()
+            jcacPlugin.configure()
+          }
+        }
+      }
 
-stage('Configuration') {
-    sh('cp jenkins.yaml /var/lib/jenkins/jenkins.yaml')
-    sh ('sudo cp /etc/kubernetes/admin.conf /var/lib/jenkins/kubeconfig')
-    sh ('sudo chown jenkins:jenkins /var/lib/jenkins/kubeconfig')
-    def jcacPlugin = Jenkins.instance.getExtensionList(io.jenkins.plugins.casc.ConfigurationAsCode.class).first()
-    jcacPlugin.configure()
+      stage('Job Seeding') {
+        steps {
+          sh "echo 'Job Seeding'"
+          jobDsl(targets: 'jobDSL/*.groovy', sandbox: false)
+        }
+      }
+    }
   }
-
-stage('Job Seeding') {
-    jobDsl(targets: 'jobDSL/*.groovy', sandbox: false)
-  }
-}

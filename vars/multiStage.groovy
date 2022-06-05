@@ -38,6 +38,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
      // для werf cleanup, что будет чистить registry и хост-раннер от устаревших кэшей и образов
     }
     stages {
+      
       stage('Checkout') {
         steps {
           checkout scm // получаем код из репозитория
@@ -45,7 +46,6 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
       }
 
       stage('Build & Publish image') {
-
         when {
             not { triggeredBy 'TimerTrigger' } // чтобы stage не запускался по крону
         }
@@ -58,11 +58,9 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
       }
 
       stage('Deploy app') {
-
         when {
             not { triggeredBy 'TimerTrigger' }
           }
-
         environment {
           // название окружения, куда осуществляется деплой (важно для шаблонизации Helm-чарта)
           //WERF_ENV="production"
@@ -72,8 +70,8 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
           runWerf("${dockerCreds}", "converge --repo ${imagesRepo}/${PROJ_NAME}")
         }
       }
-      stage('Cleanup werf Images') {
 
+      stage('Cleanup werf Images') {
         when {
           allOf {
             triggeredBy 'TimerTrigger'
