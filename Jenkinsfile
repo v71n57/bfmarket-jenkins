@@ -5,7 +5,7 @@
     agent { label 'master' }
     options { disableConcurrentBuilds() } // запрещаем параллельную сборку для пайплайна
     triggers {
-      pollSCM('* * * * *')
+      pollSCM('H * * * *')
     }
     stages {
       stage('Checkout') {
