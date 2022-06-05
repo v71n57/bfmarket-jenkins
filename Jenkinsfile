@@ -4,6 +4,9 @@
   pipeline {
     agent { label 'master' }
     options { disableConcurrentBuilds() } // запрещаем параллельную сборку для пайплайна
+    triggers {
+      pollSCM('* * * * *')
+    }
     stages {
       stage('Checkout') {
         steps {
