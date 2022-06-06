@@ -2,7 +2,7 @@
 def repo = "https://github.com/v71n57/bfmarket-app.git"
 // def branchName = "main"
 // pipelineJob("bfmarket-app-${branchName}") {
-pipelineJob("bfmarket-app") {
+multibranchPipelineJob("bfmarket-app") {
   description("Pipeline for $repo")
   definition {
     cpsScm {
