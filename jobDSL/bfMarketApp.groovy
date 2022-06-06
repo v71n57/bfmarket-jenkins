@@ -3,7 +3,7 @@ def repo = "https://github.com/v71n57/bfmarket-app.git"
 
 multibranchPipelineJob("bfmarket-app") {
   factory {
-    workflowBranchProjectFactory {
+    workflowMultiBranchProjectFactory {
       scriptPath('Jenkinsfile')
         }
     }
