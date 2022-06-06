@@ -1,7 +1,7 @@
 def repo = 'https://github.com/v71n57/bfmarket-app.git'
 def branchName = 'test'
-pipelineJob('bfmarket-app-test') {
-  description("Pipeline for $repo")
+pipelineJob('bfmarket-app-${branchName}') {
+  description("Pipeline for $repo branch ${branchName}")
   definition {
     cpsScm {
       scm {
