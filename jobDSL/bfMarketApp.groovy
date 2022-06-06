@@ -15,7 +15,7 @@ multibranchPipelineJob("bfmarket-app") {
                     remote(repo)
                     traits {
                         gitBranchDiscovery()
-                        gitTagDiscovery() // if you need tag discovery
+                        //gitTagDiscovery() // if you need tag discovery
                     }
                 }
             }
