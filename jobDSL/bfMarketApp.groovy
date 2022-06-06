@@ -2,32 +2,16 @@
 def repo = "https://github.com/v71n57/bfmarket-app.git"
 
 multibranchPipelineJob("bfmarket-app") {
-  displayName("bfmarket-app")
-  description("Multi branch pipeline for $repo")
-  factory {
-    workflowBranchProjectFactory {
-      scriptPath('Jenkinsfile')
+    displayName "my awesome job"
+    description "multi-branch pipeline job thingy"
+    branchSources {
+        git {   
+            remote(repo)
         }
     }
-
-    branchSources {
-        branchSource {
-            source {
-                git {
-                    remote(repo)
-                    traits {
-                        gitBranchDiscovery()
-                        //gitTagDiscovery() // if you need tag discovery
-                    }
-                }
-            }
-            strategy {
-                defaultBranchPropertyStrategy {
-                    props {
-                        noTriggerBranchProperty()
-                    }
-                }
-            }
+    factory {
+        workflowBranchProjectFactory {
+          scriptPath('Jenkinsfile')
         }
     }
 }
