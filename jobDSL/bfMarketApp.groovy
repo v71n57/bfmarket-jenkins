@@ -31,6 +31,6 @@ multibranchPipelineJob("bfmarket-app") {
         }
     }
     triggers {
-        periodic(2) // Trigger every 2 min.
+        periodic(3) // Trigger every 3 min.
     }
 }
