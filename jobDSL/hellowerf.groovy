@@ -2,6 +2,7 @@
 def repo = "https://github.com/v71n57/hellowerf.git"
 def branchName = "main"
 pipelineJob("hellowerf-${branchName}") {
+  // displayName "my awesome job"
   description("Pipeline for $repo branch ${branchName}")
   definition {
     cpsScm {
