@@ -68,7 +68,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
           WERF_ENV="${namespace}"
         }
         steps {
-          sh "project name - ${PROJ_NAME}"
+          sh (echo "project name - ${PROJ_NAME}")
           runWerf("${dockerCreds}", "converge --repo ${imagesRepo}/${PROJ_NAME}")
         }
       }
