@@ -38,7 +38,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
      // для werf cleanup, что будет чистить registry и хост-раннер от устаревших кэшей и образов
     }
     stages {
-      
+
       stage('Checkout') {
         steps {
           checkout scm // получаем код из репозитория
@@ -67,6 +67,7 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
           WERF_ENV="${namespace}"
         }
         steps {
+          sh "project name - ${PROJ_NAME}"
           runWerf("${dockerCreds}", "converge --repo ${imagesRepo}/${PROJ_NAME}")
         }
       }
