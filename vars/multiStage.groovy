@@ -51,7 +51,6 @@ def call( Map parameters = [:] ) { // функция принимает в ка�
         }
         steps {
           script {
-            sh "project name - ${PROJ_NAME}"
             // запуск нашего метода из runWerf.groovy
             runWerf("${dockerCreds}", "build --repo ${imagesRepo}/${PROJ_NAME}")
           }
